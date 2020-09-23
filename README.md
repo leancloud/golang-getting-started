@@ -1,2 +1,1 @@
-# golang-getting-started-
-Go Getting started
+# Go Getting started
