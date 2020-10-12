@@ -20,15 +20,7 @@ func init() {
 func GetTodos(c echo.Context) error {
 	objects, err := client.Class("Todo").NewQuery().Order("createdAt").Find()
 	if err != nil {
-		return c.Render(http.StatusInternalServerError, "error", struct {
-			Message string
-			Status  int
-			Error   string
-		}{
-			Message: err.Error(),
-			Status:  500,
-			Error:   err.Error(),
-		})
+		return echo.NewHTTPError(http.StatusInternalServerError, err)
 	}
 
 	todos := make([]Todo, len(objects))
@@ -53,7 +45,7 @@ func PostTodos(c echo.Context) error {
 	}
 
 	if _, err := client.Class("Todo").Create(todo); err != nil {
-		return c.Render(http.StatusInternalServerError, "error", err.Error())
+		return echo.NewHTTPError(http.StatusInternalServerError, err)
 	}
 
 	return c.Redirect(http.StatusSeeOther, "/todos")

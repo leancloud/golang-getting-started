@@ -3,12 +3,12 @@ package main
 import (
 	"html/template"
 	"io"
+	"net/http"
 	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/leancloud/go-sdk/leancloud/engine"
-	"github.com/leancloud/golang-getting-started/middlewares"
+	"github.com/leancloud/golang-getting-started/adapters"
 	"github.com/leancloud/golang-getting-started/routes"
 )
 
@@ -21,7 +21,7 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 }
 
 func main() {
-	port := os.Getenv("PORT")
+	port := os.Getenv("LEANCLOUD_APP_PORT")
 	if port == "" {
 		port = "3000"
 	}
@@ -34,15 +34,32 @@ func main() {
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Use(echo.WrapMiddleware(engine.Handler))
-	e.Use(middlewares.Echo)
+	e.Use(adapters.Echo)
+
 	e.Renderer = t
 	e.Static("/assets", "./assets")
+
+	e.HTTPErrorHandler = func(err error, c echo.Context) {
+		code := http.StatusInternalServerError
+		if herr, ok := err.(*echo.HTTPError); ok {
+			code = herr.Code
+		}
+
+		c.Logger().Error(err)
+		c.Render(http.StatusInternalServerError, "error", struct {
+			Message string
+			Status  int
+			Error   string
+		}{
+			Message: err.Error(),
+			Status:  code,
+			Error:   err.Error(),
+		})
+	}
 
 	e.GET("/", routes.Index)
 	e.GET("/todos", routes.GetTodos)
 	e.POST("/todos", routes.PostTodos)
 
-	e.Logger.Fatal(e.Start(":" + port))
-
+	e.Logger.Fatal(e.Start("192.168.100.2:" + port))
 }

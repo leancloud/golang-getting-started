@@ -1,4 +1,4 @@
-package middlewares
+package adapters
 
 import (
 	"github.com/labstack/echo/v4"
