@@ -34,7 +34,6 @@ func main() {
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Use(adapters.Echo)
 
 	e.Renderer = t
 	e.Static("/assets", "./assets")
@@ -57,9 +56,12 @@ func main() {
 		})
 	}
 
+	registerCloudFunction()
+
 	e.GET("/", routes.Index)
 	e.GET("/todos", routes.GetTodos)
 	e.POST("/todos", routes.PostTodos)
+	adapters.Echo(e)
 
 	e.Logger.Fatal(e.Start("192.168.100.2:" + port))
 }

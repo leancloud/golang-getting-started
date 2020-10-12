@@ -8,7 +8,7 @@ import (
 )
 
 type Todo struct {
-	Content string `json:"content`
+	Content string `json:"content"`
 }
 
 var client *leancloud.Client
