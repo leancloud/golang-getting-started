@@ -9,6 +9,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/leancloud/golang-getting-started/adapters"
+	_ "github.com/leancloud/golang-getting-started/functions"
 	"github.com/leancloud/golang-getting-started/routes"
 )
 
@@ -55,8 +56,6 @@ func main() {
 			Error:   err.Error(),
 		})
 	}
-
-	registerCloudFunction()
 
 	e.GET("/", routes.Index)
 	e.GET("/todos", routes.GetTodos)
