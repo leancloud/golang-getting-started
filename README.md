@@ -4,8 +4,8 @@ A simple Go application based on [Echo](https://echo.labstack.com/) for LeanEngi
 
 ## Documentation
 
-* [Go Web Hosting Guid](#)
+* [Go Web Hosting Guide](#)
 * [Go Cloud Function Guide](#)
-* [LeanStorage Go Guid](#)
+* [LeanStorage Go Guide](#)
 * [Go SDK API](#)
 * [lean-cli Guide](https://docs.leancloud.app/leanengine_cli.html)
