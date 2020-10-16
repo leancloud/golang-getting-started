@@ -5,9 +5,7 @@ import (
 )
 
 func init() {
-	if err := engine.Define("hello", hello); err != nil {
-		panic(err)
-	}
+	engine.Define("hello", hello)
 }
 
 func hello(req *engine.Request) (interface{}, error) {

@@ -62,5 +62,5 @@ func main() {
 	e.POST("/todos", routes.PostTodos)
 	adapters.Echo(e)
 
-	e.Logger.Fatal(e.Start("192.168.100.2:" + port))
+	e.Logger.Fatal(e.Start(":" + port))
 }
