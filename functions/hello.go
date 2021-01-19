@@ -1,13 +1,13 @@
 package functions
 
 import (
-	"github.com/leancloud/go-sdk/leancloud/engine"
+	"github.com/leancloud/go-sdk/leancloud"
 )
 
 func init() {
-	engine.Define("hello", hello)
+	leancloud.Define("hello", hello)
 }
 
-func hello(req *engine.Request) (interface{}, error) {
+func hello(req *leancloud.Request) (interface{}, error) {
 	return "Hello World!", nil
 }

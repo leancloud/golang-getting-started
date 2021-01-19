@@ -8,8 +8,8 @@ github.com/labstack/echo/v4 v4.1.17 h1:PQIBaRplyRy3OjwILGkPg89JRtH2x5bssi59G2EL3
 github.com/labstack/echo/v4 v4.1.17/go.mod h1:Tn2yRQL/UclUalpb5rPdXDevbkJ+lp/2svdyFBg6CHQ=
 github.com/labstack/gommon v0.3.0 h1:JEeO0bvc78PKdyHxloTKiF8BD5iGrH8T6MSeGvSgob0=
 github.com/labstack/gommon v0.3.0/go.mod h1:MULnywXg0yavhxWKc+lOruYdAhDwPK9wf0OL7NoOu+k=
-github.com/leancloud/go-sdk v0.0.0-20201020063850-ae190f755a1a h1:AAIgG6gM3m2oxeilA/OnzgLhRgWmq2maPZlZBmMffDs=
-github.com/leancloud/go-sdk v0.0.0-20201020063850-ae190f755a1a/go.mod h1:jon7alxvSVz6IQEoVsOi7kSshrLboTfBIJjz8FzSHRM=
+github.com/leancloud/go-sdk v0.0.0-20210114065641-c4aa348869df h1:UXU/EeRXfLM5RvSMCoy194ZFox88uqHxp+3UWo1lz3o=
+github.com/leancloud/go-sdk v0.0.0-20210114065641-c4aa348869df/go.mod h1:jon7alxvSVz6IQEoVsOi7kSshrLboTfBIJjz8FzSHRM=
 github.com/levigross/grequests v0.0.0-20180715163950-d0df86deffcb h1:ah0KveUT2AATyy8fmPGbZoAfsEtLt5HA60innQYZnyM=
 github.com/levigross/grequests v0.0.0-20180715163950-d0df86deffcb/go.mod h1:uCZIhROSrVmuF/BPYFPwDeiiQ6juSLp0kikFoEcNcEs=
 github.com/mattn/go-colorable v0.1.2/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=

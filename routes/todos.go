@@ -8,6 +8,7 @@ import (
 )
 
 type Todo struct {
+	leancloud.Object
 	Content string `json:"content"`
 }
 
@@ -18,15 +19,9 @@ func init() {
 }
 
 func GetTodos(c echo.Context) error {
-	objects, err := client.Class("Todo").NewQuery().Order("createdAt").Find()
-	if err != nil {
+	todos := make([]Todo, 1)
+	if err := client.Class("Todo").NewQuery().Order("createdAt").Find(&todos); err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err)
-	}
-
-	todos := make([]Todo, len(objects))
-
-	for i := 0; i < len(todos); i++ {
-		objects[i].ToStruct(&(todos[i]))
 	}
 
 	return c.Render(http.StatusOK, "todos", struct {

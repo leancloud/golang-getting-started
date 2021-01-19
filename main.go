@@ -33,9 +33,11 @@ func main() {
 
 	e := echo.New()
 
-	e.Use(middleware.Logger())
+	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Format: "time=${time_rfc3339}, method=${method}, uri=${uri}, host=${host}, status=${status}, error=${error}, remote=${remote_ip}\n",
+		Output: os.Stdout,
+	}))
 	e.Use(middleware.Recover())
-
 	e.Renderer = t
 	e.Static("/assets", "./assets")
 
