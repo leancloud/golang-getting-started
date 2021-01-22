@@ -8,6 +8,6 @@ func init() {
 	leancloud.Define("hello", hello)
 }
 
-func hello(req *leancloud.Request) (interface{}, error) {
+func hello(req *leancloud.FunctionRequest) (interface{}, error) {
 	return "Hello World!", nil
 }
