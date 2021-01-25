@@ -9,5 +9,7 @@ func init() {
 }
 
 func hello(req *leancloud.FunctionRequest) (interface{}, error) {
-	return "Hello World!", nil
+	return map[string]string{
+		"hello": "world",
+	}, nil
 }
