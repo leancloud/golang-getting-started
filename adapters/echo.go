@@ -6,7 +6,14 @@ import (
 )
 
 func Echo(e *echo.Echo) {
-	e.Any("/1/*", echo.WrapHandler(leancloud.Handler(nil)))
-	e.Any("/1.1/*", echo.WrapHandler(leancloud.Handler(nil)))
-	e.Any("/__engine/*", echo.WrapHandler(leancloud.Handler(nil)))
+	e.Any("/1/*", echo.WrapHandler(leancloud.Handler(nil)), setResponseContentType)
+	e.Any("/1.1/*", echo.WrapHandler(leancloud.Handler(nil)), setResponseContentType)
+	e.Any("/__engine/*", echo.WrapHandler(leancloud.Handler(nil)), setResponseContentType)
+}
+
+func setResponseContentType(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		c.Response().Header().Set("Content-Type", "application/json; charset=UTF-8")
+		return next(c)
+	}
 }
