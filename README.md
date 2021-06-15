@@ -1,6 +1,8 @@
 # Go Getting started
 
-A simple Go application based on [Echo](https://echo.labstack.com/) for LeanEngine Go runtime.
+A simple Go application based on [Echo](https://echo.labstack.com/) for [LeanEngine] Go runtime.
+
+[LeanEngine]: https://docs.leancloud.app/leanengine_overview.html
 
 ## Documentation
 
