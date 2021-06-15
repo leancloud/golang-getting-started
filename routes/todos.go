@@ -28,7 +28,7 @@ func GetTodos(c echo.Context) error {
 		Title string
 		Todos []Todo
 	}{
-		Title: "TODO 列表",
+		Title: "Todo List",
 		Todos: todos,
 	})
 }
