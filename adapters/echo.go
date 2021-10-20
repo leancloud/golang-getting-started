@@ -6,9 +6,9 @@ import (
 )
 
 func Echo(e *echo.Echo) {
-	e.Any("/1/*", echo.WrapHandler(leancloud.Handler(nil)), setResponseContentType)
-	e.Any("/1.1/*", echo.WrapHandler(leancloud.Handler(nil)), setResponseContentType)
-	e.Any("/__engine/*", echo.WrapHandler(leancloud.Handler(nil)), setResponseContentType)
+	e.Any("/1/*", echo.WrapHandler(leancloud.Engine.Handler()), setResponseContentType)
+	e.Any("/1.1/*", echo.WrapHandler(leancloud.Engine.Handler()), setResponseContentType)
+	e.Any("/__engine/*", echo.WrapHandler(leancloud.Engine.Handler()), setResponseContentType)
 }
 
 func setResponseContentType(next echo.HandlerFunc) echo.HandlerFunc {

@@ -5,7 +5,7 @@ import (
 )
 
 func init() {
-	leancloud.Define("hello", hello)
+	leancloud.Engine.Define("hello", hello)
 }
 
 func hello(req *leancloud.FunctionRequest) (interface{}, error) {
