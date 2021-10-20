@@ -8,6 +8,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/leancloud/go-sdk/leancloud"
 	"github.com/leancloud/golang-getting-started/adapters"
 	_ "github.com/leancloud/golang-getting-started/functions"
 	"github.com/leancloud/golang-getting-started/routes"
@@ -22,6 +23,8 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 }
 
 func main() {
+	leancloud.Engine.Init(leancloud.NewEnvClient())
+
 	port := os.Getenv("LEANCLOUD_APP_PORT")
 	if port == "" {
 		port = "3000"
